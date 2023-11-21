@@ -1,0 +1,19 @@
+server:
+  port: 9098
+
+spring:
+  application:
+    name: dlx-exchange2
+
+  rabbitmq:
+    host: 192.168.110.129
+    port: 5672
+    password: 123456
+    virtual-host: powernode
+    username: admin
+
+my:
+  exchangeNormalName: exchange.normal.2
+  queueNormalName: queue.normal.2
+  exchangeDlxName: exchange.dlx.2
+  queueDlxName: queue.dlx.2

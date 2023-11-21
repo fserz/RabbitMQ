@@ -1,0 +1,17 @@
+server:
+  port: 9093
+
+spring:
+  application:
+    name: ttl-test
+
+  rabbitmq:
+    host: 192.168.110.129
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: powernode
+
+my:
+  exchangeName: exchange.ttl.a
+  queueName: queue.ttl.a
