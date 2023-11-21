@@ -37,7 +37,7 @@ public class RabbitConfig {
 //        arguments.put("x-dead-letter-routing-key", "error");//设置死信路由key需要和死信交换机和死信队列绑定绑定的一致
         return QueueBuilder.durable(queueNormalName)
                 .deadLetterExchange(exchangeDxlName).maxLength(5)
-                .deadLetterRoutingKey("error")
+                .deadLetterRoutingKey("error").ttl(15000)
 //                .withArguments(arguments)
                 .build();
     }

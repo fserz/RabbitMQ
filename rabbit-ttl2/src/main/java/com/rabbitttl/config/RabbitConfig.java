@@ -9,25 +9,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class RabbiConfig {
+public class RabbitConfig {
     @Value("${my.exchangeName}")
     private String exchangeName;
     @Value("${my.queueName}")
     private String queueName;
-    @Bean
+    @Bean(name = "directExchangeB")
     public DirectExchange directExchange(){
         return ExchangeBuilder.directExchange(exchangeName).build();
     }
     @Bean
     public Queue queue(){
         Map<String, Object> arguments = new HashMap<>();
-        arguments.put("x-message-ttl", 15000);
+        arguments.put("x-message-ttl", 38000);
         //1.new
 //        return new Queue(queueName,true, false, false, arguments);
-        Queue queue = new Queue(queueName,true, false, false, arguments);
-        return queue;
+//        Queue queue = new Queue(queueName,true, false, false, arguments);
+//        return queue;
         //2.建造者
-//        return QueueBuilder.durable(queueName).withArguments(arguments).build();
+        return QueueBuilder.durable(queueName).withArguments(arguments).build();
     }
     @Bean
     public Binding binding(Queue queue, DirectExchange directExchange){

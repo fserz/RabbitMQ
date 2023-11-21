@@ -1,4 +1,4 @@
-package com.rabbitttl.service;
+package com.rabbitdelay1.service;
 
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -17,11 +17,8 @@ public class MessageService {
     private RabbitTemplate rabbitTemplate;
     public void sendMsg(){
         MessageProperties messageProperties = new MessageProperties();
-        messageProperties.setExpiration("10000");
-        Message message = MessageBuilder.withBody("test ttl ccc233".getBytes()).andProperties(messageProperties).build();
-        Message message2 = MessageBuilder.withBody("test ttl bbb233".getBytes()).andProperties(messageProperties).build();
-        rabbitTemplate.convertAndSend("exchange.ttl.b", "info", message);
-        rabbitTemplate.convertAndSend("exchange.ttl.b", "info", message2);
+        Message message = MessageBuilder.withBody("test delay~~~!!!".getBytes()).build();
+        rabbitTemplate.convertAndSend("exchange.delay1", "order", message);
         log.info("消息发送完毕，发送时间为：{}", new Date());
     }
 }

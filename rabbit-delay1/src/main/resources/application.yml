@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ttl-test2
+    name: delay-learn1
 
   rabbitmq:
     host: 192.168.110.129
@@ -13,5 +13,6 @@ spring:
     virtual-host: powernode
 
 my:
-  exchangeName: exchange.ttl.b
-  queueName: queue.ttl.b
+  exchangeName: exchange.delay1
+  queueNormalName: queue.delay.normal1
+  queueDlxName: queue.delay.dlx1

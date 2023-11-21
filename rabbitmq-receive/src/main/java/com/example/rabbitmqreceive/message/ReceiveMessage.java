@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class ReceiveMessage {
-    @RabbitListener(queues = {"queue.fanout.a", "queue.fanout.b"})
+    @RabbitListener(queues = {"queue.fanout.a", "queue.fanout.b","queue.direct.a", "queue.direct.b"})
     public void receiveMsg(Message msg){
         byte[] body = msg.getBody();
         String msgstr = new String(body);
