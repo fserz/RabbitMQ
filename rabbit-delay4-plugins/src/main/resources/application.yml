@@ -1,0 +1,17 @@
+server:
+  port: 9096
+
+spring:
+  application:
+    name: delay-plugins
+
+  rabbitmq:
+    host: 192.168.110.129
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: powernode
+
+my:
+  exchangeName: exchange.delay4 #延迟交换机
+  queueDelayName: queue.delay4
