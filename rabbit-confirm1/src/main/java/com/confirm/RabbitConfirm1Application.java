@@ -9,11 +9,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RabbitTTLApplication implements ApplicationRunner {
+public class RabbitConfirm1Application implements ApplicationRunner {
     @Resource
     private MessageService messageService;
     public static void main(String[] args) {
-        SpringApplication.run(RabbitTTLApplication.class, args);
+        SpringApplication.run(RabbitConfirm1Application.class, args);
     }
 
     @Override
