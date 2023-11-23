@@ -1,0 +1,18 @@
+server:
+  port: 9095
+
+spring:
+  application:
+    name: confirm-learn1
+
+  rabbitmq:
+    host: 192.168.110.129
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: powernode
+    publisher-confirm-type: correlated
+
+my:
+  exchangeName: exchange.confirm.4
+  queueName: queue.confirm.4
