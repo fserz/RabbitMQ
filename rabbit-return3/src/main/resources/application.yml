@@ -1,0 +1,18 @@
+server:
+  port: 9096
+
+spring:
+  application:
+    name: return-learn3
+
+  rabbitmq:
+    host: 192.168.110.129
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: powernode
+    publisher-returns: true
+
+my:
+  exchangeName: exchange.return.3
+  queueName: queue.return.3
