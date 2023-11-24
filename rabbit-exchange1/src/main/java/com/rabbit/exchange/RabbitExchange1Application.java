@@ -16,7 +16,7 @@ public class RabbitExchange1Application implements ApplicationRunner {
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         messageService.sendMsg();
     }
 }
