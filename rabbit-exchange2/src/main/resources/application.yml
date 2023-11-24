@@ -1,0 +1,17 @@
+server:
+  port: 9095
+
+spring:
+  application:
+    name: exchange-learn2
+
+  rabbitmq:
+    host: 192.168.110.129
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: powernode
+
+my:
+  exchangeName: exchange.properties.2
+  queueName: queue.exchange.2
