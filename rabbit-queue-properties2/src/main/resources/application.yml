@@ -1,0 +1,17 @@
+server:
+  port: 9095
+
+spring:
+  application:
+    name: exchange-queue1
+
+  rabbitmq:
+    host: 192.168.110.129
+    username: admin
+    password: 123456
+    port: 5672
+    virtual-host: powernode
+
+my:
+  exchangeName: exchange.queue.2
+  queueName: queue.properties.2
