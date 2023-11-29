@@ -16,6 +16,16 @@ spring:
     listener:
       simple:
         acknowledge-mode: manual
+  data:
+    redis:
+      host: 192.168.110.129
+      port: 6379
+      database: 0 #默认也是0号数据库
+
+#  cache:
+#    type: redis
+#    cache-names: pc
+
 
 
 my:

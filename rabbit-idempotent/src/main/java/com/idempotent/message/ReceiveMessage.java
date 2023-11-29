@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -16,6 +17,8 @@ import java.io.IOException;
 public class ReceiveMessage {
     @Resource
     private ObjectMapper objectMapper;
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
     @RabbitListener(queues = {"queue.idempotent"})
     public void receiveMsg(Message message, Channel channel) throws IOException {
         //获取消息唯一标识
@@ -27,7 +30,11 @@ public class ReceiveMessage {
         try {
             log.info("对象为：{}", orders.toString());
             log.info("接收到的消息为：{}", strOrder);
-            //TODO 插入订单
+            Boolean setResult = stringRedisTemplate.opsForValue()
+                    .setIfAbsent("idempotent_" + orders.getId(), String.valueOf(orders.getId()));
+            if (setResult) {
+                log.info("向数据库插入订单");
+            }
             //模拟报错
 //            int a = 10/0;
             //手动确认
