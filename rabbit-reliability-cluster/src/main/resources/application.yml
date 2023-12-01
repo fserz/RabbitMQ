@@ -1,0 +1,24 @@
+server:
+  port: 9099
+
+spring:
+  application:
+    name: rabbitmq-cluster
+
+  rabbitmq:
+#    host: 192.168.110.129 这是连接单台服务器的
+#    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: powernode
+    publisher-confirm-type: correlated #开启发布者确认模式，不管到不到交换机都会回调
+    publisher-returns: true #开启发布者的return模式，只有没到队列才会回调
+    listener:
+      simple:
+        acknowledge-mode: manual
+    addresses: 192.168.110.128:5672,192.168.110.132:5672,192.168.110.133:5672
+
+
+my:
+  exchangeName: exchange.cluster
+  queueName: queue.cluster
