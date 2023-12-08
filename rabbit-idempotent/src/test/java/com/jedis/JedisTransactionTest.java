@@ -7,7 +7,7 @@ import redis.clients.jedis.Transaction;
 
 public class JedisTransactionTest {
     //JedisPooled中没有事务操作，只能使用Jedis和JedisPool操作事务
-    private JedisPool jedisPool = new JedisPool("192.168.110.135", 6379);
+    private final JedisPool jedisPool = new JedisPool("192.168.110.135", 6379);
 
     @Test
     public void test01() {
